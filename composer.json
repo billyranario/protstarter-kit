@@ -1,0 +1,31 @@
+{
+    "name": "billyranario/prostarterkit",
+    "description": "A Laravel package that provides a set of utilities for rapid development.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Billy Ranario",
+            "email": "billy@example.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "laravel/framework": ">=6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Billyranario\\ProstarterKit\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Billyranario\\ProstarterKit\\ProstarterKitServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
+}
