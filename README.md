@@ -1,4 +1,4 @@
-# ProstarterKit by Billyranario
+# ProstarterKit by Billy Joel Ranario
 
 ## Description
 
