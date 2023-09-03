@@ -1,6 +1,6 @@
 <?php
 
-namespace Billyranario\ProstarterKit;
+namespace Billyranario\ProstarterKit\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
