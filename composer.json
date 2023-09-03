@@ -1,6 +1,6 @@
 {
   "name": "billyranario/prostarterkit",
-  "description": "A Laravel package that provides a set of utilities for rapid development.",
+  "description": "A Laravel package that provides a set of utilities for rapid development. Typical structure for senior developers to start a new project.",
   "type": "library",
   "license": "MIT",
   "authors": [
