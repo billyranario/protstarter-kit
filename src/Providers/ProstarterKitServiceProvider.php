@@ -20,7 +20,7 @@ class ProstarterKitServiceProvider extends ServiceProvider
     {
         // You can publish configuration files, views, assets etc.
         $this->publishes([
-            __DIR__.'/../Config/prostarter-kit.php' => config_path('prostarter-kit.php'),
+            __DIR__.'/../Config/prostarter-kit.php' => config_path('prostarterkit.php'),
         ], $this->tag);
         
     }
