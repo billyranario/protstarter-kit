@@ -7,6 +7,11 @@ use Illuminate\Support\ServiceProvider;
 class ProstarterKitServiceProvider extends ServiceProvider
 {
     /**
+     * @var string $tag
+     */
+    protected string $tag = 'prostarter-kit';
+
+    /**
      * Perform post-registration booting of services.
      *
      * @return void
@@ -16,7 +21,8 @@ class ProstarterKitServiceProvider extends ServiceProvider
         // You can publish configuration files, views, assets etc.
         $this->publishes([
             __DIR__.'/../Config/prostarter-kit.php' => config_path('prostarter-kit.php'),
-        ], 'config');
+        ], $this->tag);
+        
     }
 
     /**
