@@ -40,6 +40,8 @@ Whether you're building a simple API backend, a complex web application, or anyt
 
 ```bash
 composer require billyranario/prostarterkit
+
+php artisan vendor:publish --tag=prostarter-kit
 ```
 
 ## Usage Examples
