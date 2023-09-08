@@ -14,11 +14,9 @@ class ProstarterKitServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // You can publish configuration files, views, assets etc.
-        // For example, if you have a config file named 'prostarter-kit.php' in your package,
-        // you can let users publish it to their own app's config directory like so:
-        // $this->publishes([
-        //     __DIR__.'/path/to/config/prostarter-kit.php' => config_path('prostarter-kit.php'),
-        // ], 'config');
+        $this->publishes([
+            __DIR__.'/../Config/prostarter-kit.php' => config_path('prostarter-kit.php'),
+        ], 'config');
     }
 
     /**
