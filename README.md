@@ -31,6 +31,8 @@ Whether you're building a simple API backend, a complex web application, or anyt
   - [ServiceResponse](#serviceresponse)
   - [UserRepositoryInterface](#userrepositoryinterface)
   - [ProstarterKitServiceProvider](#prostarterkitserviceprovider)
+- [Helper Classes](#helper-classes)
+  - [LoggerHelper](#loggerhelper)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -180,6 +182,47 @@ public function update(MyRequest $request)
     $baseDto = $request->toDto();
     // Now you can use $baseDto->getPerPage() or $baseDto->getOrderBy()
 }
+```
+
+## Helper Classes
+
+```php
+use Billyranario\ProstarterKit\App\Helpers;
+```
+
+### LoggerHelper
+
+The `LoggerHelper` class provides methods for logging messages to the application's log files.
+
+#### Usage
+
+```php
+use Billyranario\ProstarterKit\App\Helpers\LoggerHelper;
+
+// Log a debug message
+LoggerHelper::debug('This is a debug message', ['some_data' => 'some_value']]);
+
+// Log an info message
+LoggerHelper::info('This is an info message', ['some_data' => 'some_value']]);
+
+// Log a warning message
+LoggerHelper::warning('This is a warning message', ['some_data' => 'some_value']]);
+
+// Log a critical message
+LoggerHelper::critical('This is a critical message', ['some_data' => 'some_value']]);
+
+// Log an alert message
+LoggerHelper::alert('This is an alert message', ['some_data' => 'some_value']]);
+
+// Log an emergency message
+LoggerHelper::emergency('This is an emergency message', ['some_data' => 'some_value']]);
+
+// Log an error message
+LoggerHelper::error('This is an error message', ['some_data' => 'some_value']]);
+
+// Log an error message
+try {} catch (\Throwable $th)
+LoggerHelper::logThrowError($th);
 ```
 
 ## Contributing
