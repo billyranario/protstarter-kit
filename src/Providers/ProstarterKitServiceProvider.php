@@ -11,7 +11,7 @@ class ProstarterKitServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // You can publish configuration files, views, assets etc.
         // For example, if you have a config file named 'prostarter-kit.php' in your package,
@@ -26,7 +26,7 @@ class ProstarterKitServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         // You can register any bindings or singleton instances here.
         // For example:
