@@ -28,4 +28,5 @@ return [
     |
     */
     'web_url' => env('APP_WEB_URL', 'http://localhost:4200'),
+    'cmd_initial_pass' => env('APP_ADMIN_PASS', 'Abc@123456'),
 ];
