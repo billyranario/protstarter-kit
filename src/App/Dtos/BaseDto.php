@@ -5,6 +5,7 @@ namespace Billyranario\ProstarterKit\App\Dtos;
 class BaseDto
 {
     /**
+     * @var int|null $id
      * @var int $perPage
      * @var int $page
      * @var string $orderBy
@@ -12,12 +13,20 @@ class BaseDto
      * @var string $searchKeyword
      * @var array $relations
      */
-
+    private ?int $id = null;
     private int $perPage = 10;
     private string $orderBy = 'created_at';
     private string $orderDirection = 'desc';
     private ?string $searchKeyword = null;
     private array $relations = [];
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @param int $perPage
@@ -57,6 +66,14 @@ class BaseDto
     public function setRelations(array $relations): void
     {
         $this->relations = $relations;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     /**
