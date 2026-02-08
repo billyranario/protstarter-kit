@@ -4,7 +4,7 @@ namespace Billyranario\ProstarterKit\App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BaseRequest extends FormRequest 
+class BaseRequest extends FormRequest
 {
 
     /**
@@ -81,5 +81,86 @@ class BaseRequest extends FormRequest
         }
 
         return explode(',', (string) $value);
+    }
+
+    /**
+     * Get relations for a database query.
+     * These are comma separated relations.
+     * Example relation1,relation2,relation3
+     * @return array|null
+     */
+    public function getRelations(): ?array
+    {
+        $value = $this->input('relations');
+
+        if (!empty($value) && is_string($value) && str_contains($value, '|')) {
+            return $this->getRelationsWithColumns();
+        }
+
+        $relations = [];
+
+        if (is_null($value)) {
+            $relations = null;
+        } elseif (is_string($value) && !empty($value)) {
+            $relations = explode(',', $value);
+        } elseif (is_array($value) && !empty($value)) {
+            $relations = $value;
+        }
+
+        return $relations;
+    }
+
+    /**
+     * Get columns for database query.
+     * @return array|null
+     */
+    public function getColumns(): ?array
+    {
+        $value = $this->input('columns');
+        $columns = [];
+
+        if (is_null($value)) {
+            $columns = null;
+        } elseif (is_string($value) && !empty($value)) {
+            $columns = explode(',', $value);
+        } elseif (is_array($value) && !empty($value)) {
+            $columns = $value;
+        }
+
+        return $columns;
+    }
+
+    /**
+     * Get relations for a database query.
+     * These are pipe separated relations with columns.
+     * Example: 'relation1:id,status,date_created|relation2:id,status,date_created|relation3:id,status,date_created'
+     * @return array|null
+     */
+    public function getRelationsWithColumns(): ?array
+    {
+        $value = $this->input('relations');
+        $relations = [];
+
+        if (is_null($value)) {
+            $relations = null;
+        } elseif (is_string($value) && !empty($value)) {
+            $relations = explode('|', $value);
+        } elseif (is_array($value) && !empty($value)) {
+            $relations = $value;
+        }
+
+        return $relations;
+    }
+
+    /**
+     * Transform input value to url.
+     *
+     * @param string $key
+     *
+     * @return string
+     */
+    public function getInputAsUrl(string $key): string
+    {
+        return urldecode($this->getInputAsString($key));
     }
 }
